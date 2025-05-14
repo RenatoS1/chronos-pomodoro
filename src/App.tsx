@@ -5,11 +5,12 @@ import './styles/global.css';
 
 
 export function App() {
-  console.log("OI");
 
   return (
     <>
+    
       <Heading />
+
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam odit
         iste ut dolores tempora atque iure sunt tempore eos culpa sed quisquam,
