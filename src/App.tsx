@@ -1,22 +1,32 @@
-import { Heading } from './components/Heading';
-
 import './styles/theme.css';
 import './styles/global.css';
 
+import { TimerIcon } from 'lucide-react';
+import { Contador } from './components/Contador';
 
 export function App() {
 
   return (
     <>
-    
-      <Heading />
+      <div className="container-fluid">
 
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam odit
-        iste ut dolores tempora atque iure sunt tempore eos culpa sed quisquam,
-        nostrum exercitationem autem porro, ipsa perferendis voluptas
-        blanditiis.
-      </p>
+        <div className="container">
+
+          <div className="content">
+
+            <section className="timeIcon">
+              <TimerIcon size={60} />
+            </section>
+
+            <section className="title">Chronos</section>
+
+            <section> <Contador /> </section>
+
+          </div>
+
+        </div>
+
+      </div>
     </>
   );
 }
