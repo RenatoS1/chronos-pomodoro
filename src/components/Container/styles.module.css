@@ -1,0 +1,16 @@
+.container {
+    max-width: 98rem;
+    margin: 0 auto;
+}
+
+.content {
+    margin: 3.2rem;
+}
+
+.timeIcon {
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    margin: 5.5rem 0 0.5rem 0;
+    font-weight: 900;
+}
