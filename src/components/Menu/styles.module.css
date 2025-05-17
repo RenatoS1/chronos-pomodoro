@@ -1,31 +1,32 @@
-.logo {
+.menu {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2.4rem;
-    padding-top: 3.2rem;
+    gap: 1.5rem;
 }
 
-.logoLink {
-    color: var(--primary);
-    display: flex;
+.menuLink {
+    color: var(--text-over-primary);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    font-size: 4.2rem;
-    font-weight: bold;
     text-decoration: none;
     gap: 0.3rem;
+    background-color: var(--primary);
+    padding: 1.0rem;
+    border-radius: 10px;
 }
 
-.logoLink:hover {
+.menuLink:hover {
     filter: brightness(80%);
     transition: all 0.1s ease-in-out;
 }
 
-.logoLink svg {
-    width: 6.4rem;
-    height: 6.4rem;
+.menuLink svg {
+    width: 2.9rem;
+    height: 2.9rem;
+    
 }
 
 

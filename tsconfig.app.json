@@ -25,5 +25,5 @@
     "noUncheckedSideEffectImports": true,
 
   },
-  "include": ["src", "src/components/Links"]
+  "include": ["src", "src/components/Menu"]
 }

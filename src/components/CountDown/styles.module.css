@@ -1,0 +1,15 @@
+.container {
+/* Esse valor abaixo : Pode ser lido da seguinte forma:
+
+    O tamanho da fonte terá um mínimo de 8rem.
+
+    O valor ideal será 30vw (30% da largura da viewport).
+
+    O tamanho da fonte terá um máximo de 16rem.
+*/
+    font-size: clamp(8rem, 30vw, 16rem);
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+}
+

@@ -1,13 +1,13 @@
-.links {
+.menu {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
-.linksLink {
-    color: var(--gray-900);
-    display: flex;
+.menuLink {
+    color: var(--text-over-primary);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -18,12 +18,12 @@
     border-radius: 10px;
 }
 
-.linksLink:hover {
+.menuLink:hover {
     filter: brightness(80%);
     transition: all 0.1s ease-in-out;
 }
 
-.linksLink svg {
+.menuLink svg {
     width: 2.9rem;
     height: 2.9rem;
     
