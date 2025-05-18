@@ -1,32 +1,29 @@
-.menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-}
+.input {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 0.8rem;
+    color: var(--text-default);
+    outline: none;
 
-.menuLink {
-    color: var(--text-over-primary);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-decoration: none;
-    gap: 0.3rem;
-    background-color: var(--primary);
-    padding: 1.0rem;
-    border-radius: 10px;
-}
-
-.menuLink:hover {
-    filter: brightness(80%);
+    border: 0.2rem solid transparent;
+    border-bottom: 0.2rem solid var(--primary);
     transition: all 0.1s ease-in-out;
 }
 
-.menuLink svg {
-    width: 2.9rem;
-    height: 2.9rem;
-    
+.input:focus {
+    border: 0.2rem solid var(--primary);
+    border-radius: 0.8rem;
 }
 
+.input::placeholder {
+    color: var(--gray-500);
+    font-size: 1.4rem;
+    font-style: italic;
+}
 
+.input:disabled {
+    border-bottom: 0.2rem solid var(--disabled);
+    color: var(--text-muted);
+}
