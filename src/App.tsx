@@ -1,22 +1,44 @@
+import './styles/theme.css';
+import './styles/global.css';
 
 import { Container } from './components/Container';
 import { Logo } from './components/Logo';
 import { Menu } from './components/Menu';
-
-import './styles/theme.css';
-import './styles/global.css';
 import { CountDown } from './components/CountDown';
 import { DefaultInput } from './components/DefaultInput';
 import { Cycles } from './components/Cycles';
 import { DefaultButton } from './components/DefaultButton';
 import { PlayCircleIcon } from 'lucide-react';
+import { Footer } from './components/Footer';
+import { Heading } from './components/Heading';
 
 
 
 export function App() {
 
+  let numero = 0;
+
+  function handleClick() {
+    const span = document.getElementById('numero');
+    if (!span) return;
+    numero += 1;
+    span.innerText = numero.toString();
+    console.log(numero, Date.now());
+    
+  }
+
   return (
     <>
+      <Heading>
+        Número: <span id='numero'>{numero}</span>
+        <button onClick={handleClick} type="button">Aumenta</button>
+      </Heading>
+
+
+
+
+
+
       <Container>
         <Logo />
       </Container>
@@ -35,7 +57,7 @@ export function App() {
             <DefaultInput 
               id='meuInput' 
               type='text' 
-              labelText='task:'
+              labelText={numero.toString()}
               placeholder='Digite Algo...'
 
             />
@@ -53,6 +75,10 @@ export function App() {
             <DefaultButton icon={<PlayCircleIcon />} />
           </div>
         </form>
+      </Container>
+
+      <Container>
+        <Footer />
       </Container>
     </>
   );
