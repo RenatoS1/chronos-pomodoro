@@ -3,6 +3,7 @@ import { Container } from "../../components/Container";
 import { GenericHtml } from "../../components/GenericHtml";
 import { MainTemplate } from "../../templates/MainTemplate";
 import { Heading } from "../../components/Heading";
+import { FrownIcon } from "lucide-react";
 
 export function NotFound() {
   useEffect(() => {
@@ -15,6 +16,8 @@ export function NotFound() {
         <GenericHtml>
 
           <Heading>404 - Página não encontrada 🚀</Heading>
+          <Heading> <FrownIcon size={60} color={"#0da170"}/> </Heading>
+          
           <p>
             Opa! Parece que a página que você está tentando acessar não existe.
             Talvez ela tenha tirado férias, resolvido explorar o universo ou se

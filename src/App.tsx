@@ -3,12 +3,50 @@ import "./styles/theme.css";
 import "./styles/global.css";
 
 
-import { AboutPomodoro } from "./pages/AboutPomodoro";
+import { Home } from "./pages/Home";
+import { useState } from "react";
+import type { TaskStateModel } from "./models/TaskStateModel";
 
+/*
+
+export type TaskStateModel = {
+    tasks: TaskModel[];
+    secondsReamaining: number; 
+    formattedSecondsRemaining: string; 
+    activeTask: TaskModel | null; 
+    currentCycle: number;
+    config: {
+        workTime: number;
+        shortBreakTime: number;
+        longBreakTime: number;
+    };
+};
+*/
+
+
+const initialState: TaskStateModel = {
+  tasks: [],
+  secondsReamaining: 0,
+  formattedSecondsRemaining: '00:00',
+  activeTask: null,
+  currentCycle: 0,
+  config: {
+    workTime: 25,
+    shortBreakTime: 5,
+    longBreakTime: 15,
+  }
+}
 
 
 export function App() {
-  return <AboutPomodoro />
+
+  const [state, setState] = useState(initialState);
+
+  console.log('APP', state);
+  
+
+
+  return <Home state={state} setState={setState}  />
 }
 
 // export default App;

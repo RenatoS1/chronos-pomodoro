@@ -6,6 +6,7 @@ type GenericHtmlProps = {
 
 export function GenericHtml({ children }: GenericHtmlProps) {
     return <div className={styles.genericHtml}>
+        
         { children }
     </div>
 }
