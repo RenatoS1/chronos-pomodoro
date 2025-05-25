@@ -2,36 +2,12 @@ import { PlayCircleIcon } from "lucide-react";
 import { Cycles } from "../Cycles";
 import { DefaultInput } from "../DefaultInput";
 import { DefaultButton } from "../DefaultButton";
-import type { HomeProps } from "../../pages/Home";
 
-export function MainForm({ state, setState }: HomeProps ) {
-
-  function handleClick() {
-    setState(prevState => {
-      return {
-        ...prevState,
-        config: {
-          ...prevState.config,
-          workTime: 34,
-        },
-        formattedSecondsRemaining: "23:34"
-      }
-    })
-  }
-
-
+export function MainForm() {
 
 
   return (
     <form className="form" action="">
-
-      <div>
-        <button type="button" onClick={handleClick}>
-          Clicar
-        </button>
-      </div>
-
-
 
       <div className="formRow">
         <DefaultInput
@@ -43,7 +19,7 @@ export function MainForm({ state, setState }: HomeProps ) {
       </div>
 
       <div className="formRow">
-        <p>O proximo intervalo é de {state.config.workTime}.</p>
+        <p>O proximo intervalo é de 25min.</p>
       </div>
 
       <div className="formRow">
