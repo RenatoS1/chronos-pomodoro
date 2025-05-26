@@ -3,12 +3,11 @@ import { Cycles } from "../Cycles";
 import { DefaultInput } from "../DefaultInput";
 import { DefaultButton } from "../DefaultButton";
 
-export function MainForm() {
 
+export function MainForm() {
 
   return (
     <form className="form" action="">
-
       <div className="formRow">
         <DefaultInput
           id="meuInput"

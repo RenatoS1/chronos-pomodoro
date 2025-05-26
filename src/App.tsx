@@ -1,76 +1,16 @@
-
 import "./styles/theme.css";
 import "./styles/global.css";
 
-
 import { Home } from "./pages/Home";
-import { useState } from "react";
-import type { TaskStateModel } from "./models/TaskStateModel";
-import { TaskContext } from "./contexts/TaskContext";
-
-/*
-
-export type TaskStateModel = {
-    tasks: TaskModel[];
-    secondsReamaining: number; 
-    formattedSecondsRemaining: string; 
-    activeTask: TaskModel | null; 
-    currentCycle: number;
-    config: {
-        workTime: number;
-        shortBreakTime: number;
-        longBreakTime: number;
-    };
-};
-*/
-
-
-const initialState: TaskStateModel = {
-  tasks: [],
-  secondsReamaining: 0,
-  formattedSecondsRemaining: '00:00',
-  activeTask: null,
-  currentCycle: 0,
-  config: {
-    workTime: 25,
-    shortBreakTime: 5,
-    longBreakTime: 15,
-  }
-}
-
+import { TaskContextProvider } from "./contexts/TaskContext/TaskContextProvider";
 
 export function App() {
-
-  const [state, setState] = useState(initialState);
-  // Eu criei um estado no App !
-
-
-  return(
-    <TaskContext.Provider value={{ outraCoisa: 321}}>
+  return (
+    <TaskContextProvider>
       <Home />
-    </TaskContext.Provider>
-  )
-
+    </TaskContextProvider>
+  );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
