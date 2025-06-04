@@ -34,19 +34,20 @@ export type TaskActionsModel =
 // Ou podemos fazer :
 
 // sem payload
-export type TaskActionsWithPayload =
+export type TaskActionsWithPayload = {
+  type: TaskActionsTypes.START_TASK;
+  payload: TaskModel;
+};
+
+// com payload
+export type TaskActionsWithoutPayload =
   | {
-      type: TaskActionsTypes.START_TASK;
-      payload: TaskModel;
+      type: TaskActionsTypes.RESET_STATE;
     }
   | {
       type: TaskActionsTypes.INTERRUPT_TASK;
-      payload: TaskModel;
     };
 
-// com payload
-export type TaskActionsWithoutPayload = {
-  type: TaskActionsTypes.RESET_STATE;
-};
-
-export type TaskActionsModel = TaskActionsWithPayload | TaskActionsWithoutPayload;
+export type TaskActionsModel =
+  | TaskActionsWithPayload
+  | TaskActionsWithoutPayload;
