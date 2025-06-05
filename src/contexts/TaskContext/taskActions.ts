@@ -6,7 +6,7 @@ import type { TaskModel } from "../../models/TaskModel";
 
 // state <- o estado atual
 
-// action <a ação disparada, geralmente é um objeto com type e (opcionalmente) payload
+// action <- a ação disparada, geralmente é um objeto com type e (opcionalmente) payload
 
 // type <- o tipo da ação, geralmente uma string (pode ser enum, constante, etc)
 

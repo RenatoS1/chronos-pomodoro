@@ -13,9 +13,25 @@ export function MainForm() {
   const { state, dispatch } = useTaskContext();
   const taskNameInput = useRef<HTMLInputElement>(null);
 
-  // ciclos
+  // Ciclos
   const nextCycle = getNextCycle(state.currentCycle);
   const nextCycleType = getNextCycleType(nextCycle);
+
+  // Tips
+  const tipsForWhenActiveTask = {
+    shortTime: <span>Foque por {state.config.workTime}min</span>,
+    shortBreakTime: <span>Descanse por {state.config.shortBreakTime}min</span>,
+    longBreakTime: <span>Descanso longo</span>
+
+  };
+  const tipsForNoActiveTask = {
+    shortTime: <span>O Próximo ciclo é de {state.config.workTime}min</span>,
+    shortBreakTime: <span>O Próximo ciclo é de {state.config.shortBreakTime}min</span>,
+    longBreakTime: <span>O Próximo descanso será longo</span>
+
+  };
+
+
 
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -61,7 +77,7 @@ export function MainForm() {
       </div>
 
       <div className="formRow">
-        <p>O proximo intervalo é de 25min.</p>
+        <p>{state.activeTask && tipsForWhenActiveTask}</p>
       </div>
 
       {state.currentCycle > 0 && (

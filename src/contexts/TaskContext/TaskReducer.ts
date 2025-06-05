@@ -12,8 +12,10 @@ export function taskReducer(
       const newTask = action.payload;
       const nextCycle = getNextCycle(state.currentCycle);
       const secondsReamaining = newTask.duration * 60;
-
+      
       return {
+
+        
         ...state,
         activeTask: newTask,
         currentCycle: nextCycle,
@@ -21,6 +23,7 @@ export function taskReducer(
         formattedSecondsRemaining: formatSecondsToMinutes(secondsReamaining),
         tasks: [...state.tasks, newTask],
       };
+     
     }
 
     case TaskActionsTypes.INTERRUPT_TASK: {
