@@ -19,14 +19,14 @@ export function MainForm() {
 
   // Tips
   const tipsForWhenActiveTask = {
-    shortTime: <span>Foque por {state.config.workTime}min</span>,
-    shortBreakTime: <span>Descanse por {state.config.shortBreakTime}min</span>,
+    workTime: <span>Foque por <b>{state.config.workTime}minutos</b></span>,
+    shortBreakTime: <span>Descanse por <b>{state.config.shortBreakTime}minutos</b></span>,
     longBreakTime: <span>Descanso longo</span>
 
   };
   const tipsForNoActiveTask = {
-    shortTime: <span>O Próximo ciclo é de {state.config.workTime}min</span>,
-    shortBreakTime: <span>O Próximo ciclo é de {state.config.shortBreakTime}min</span>,
+    workTime: <span>O Próximo ciclo é de <b>{state.config.workTime}minutos</b></span>,
+    shortBreakTime: <span>O Próximo ciclo é de <b>{state.config.shortBreakTime}minutos</b></span>,
     longBreakTime: <span>O Próximo descanso será longo</span>
 
   };
@@ -77,7 +77,8 @@ export function MainForm() {
       </div>
 
       <div className="formRow">
-        <p>{state.activeTask && tipsForWhenActiveTask}</p>
+        {!!state.activeTask && tipsForWhenActiveTask[state.activeTask.type]}
+        {!state.activeTask && tipsForNoActiveTask[nextCycleType]}
       </div>
 
       {state.currentCycle > 0 && (
