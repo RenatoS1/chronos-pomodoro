@@ -8,6 +8,7 @@ import { useTaskContext } from "../../contexts/TaskContext/useTaskContext";
 import { getNextCycle } from "../../utils/getNextCycle";
 import { getNextCycleType } from "../../utils/getNextCycleType";
 import { TaskActionsTypes } from "../../contexts/TaskContext/taskActions";
+import { Tips } from "../Tips";
 
 export function MainForm() {
   const { state, dispatch } = useTaskContext();
@@ -17,19 +18,7 @@ export function MainForm() {
   const nextCycle = getNextCycle(state.currentCycle);
   const nextCycleType = getNextCycleType(nextCycle);
 
-  // Tips
-  const tipsForWhenActiveTask = {
-    workTime: <span>Foque por <b>{state.config.workTime}minutos</b></span>,
-    shortBreakTime: <span>Descanse por <b>{state.config.shortBreakTime}minutos</b></span>,
-    longBreakTime: <span>Descanso longo</span>
 
-  };
-  const tipsForNoActiveTask = {
-    workTime: <span>O Próximo ciclo é de <b>{state.config.workTime}minutos</b></span>,
-    shortBreakTime: <span>O Próximo ciclo é de <b>{state.config.shortBreakTime}minutos</b></span>,
-    longBreakTime: <span>O Próximo descanso será longo</span>
-
-  };
 
 
 
@@ -56,7 +45,18 @@ export function MainForm() {
     };
 
 
-    dispatch({type: TaskActionsTypes.START_TASK, payload: newTask})
+    dispatch({type: TaskActionsTypes.START_TASK, payload: newTask});
+
+    const worker = new Worker(
+      new URL('../../workers/timerWorker.js', import.meta.url),
+    );
+
+    worker.postMessage('Olá Mundo!');
+
+    worker.onmessage = function (event){
+      console.log('PRINCIPAL recebeu:', event.data);
+      
+    };
   }
 
   function handleInterruptTask() {
@@ -77,8 +77,7 @@ export function MainForm() {
       </div>
 
       <div className="formRow">
-        {!!state.activeTask && tipsForWhenActiveTask[state.activeTask.type]}
-        {!state.activeTask && tipsForNoActiveTask[nextCycleType]}
+          <Tips />
       </div>
 
       {state.currentCycle > 0 && (
