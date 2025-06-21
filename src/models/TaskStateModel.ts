@@ -2,7 +2,7 @@ import type { TaskModel } from "./TaskModel"
 
 export type TaskStateModel = {
     tasks: TaskModel[]; // Histórico, MainForm
-    secondsReamaining: number; // CountDown, Histórico, MainForm, Button
+    secondsRemaining: number; // CountDown, Histórico, MainForm, Button
     formattedSecondsRemaining: string; // Título, CountDown
     activeTask: TaskModel | null; // CountDown, Histórico, MainForm, Button
     currentCycle: number; // Home

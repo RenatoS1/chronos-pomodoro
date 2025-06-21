@@ -1,5 +1,6 @@
 import type { TaskModel } from "../../models/TaskModel";
 
+
 // useReducer <- hook do React que recebe um reducer e um estado inicial
 
 // reducer <- função que recebe o estado atual e uma ação, e retorna o novo estado
@@ -15,6 +16,8 @@ export enum TaskActionsTypes {
   START_TASK = "START_TASK",
   INTERRUPT_TASK = "INTERRUPT_TASK",
   RESET_STATE = "RESET_STATE",
+  COUNT_DOWN = "COUNT_DOWN",
+  COMPLETE_TASK = "COMPLETE_TASK",
 }
 /*
 export type TaskActionsModel =
@@ -34,10 +37,14 @@ export type TaskActionsModel =
 // Ou podemos fazer :
 
 // sem payload
-export type TaskActionsWithPayload = {
-  type: TaskActionsTypes.START_TASK;
-  payload: TaskModel;
-};
+export type TaskActionsWithPayload =
+  | { type: TaskActionsTypes.START_TASK;
+      payload: TaskModel
+    }
+  | {
+    type: TaskActionsTypes.COUNT_DOWN;
+    payload: { secondsRemaining: number};
+    };
 
 // com payload
 export type TaskActionsWithoutPayload =
@@ -46,6 +53,9 @@ export type TaskActionsWithoutPayload =
     }
   | {
       type: TaskActionsTypes.INTERRUPT_TASK;
+    }
+  | {
+      type: TaskActionsTypes.COMPLETE_TASK;
     };
 
 export type TaskActionsModel =
