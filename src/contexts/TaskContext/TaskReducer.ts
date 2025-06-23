@@ -11,7 +11,7 @@ export function taskReducer(
     case TaskActionsTypes.START_TASK: {
       const newTask = action.payload;
       const nextCycle = getNextCycle(state.currentCycle);
-      const secondsReamaining = newTask.duration * 60;
+      const secondsRemaining = newTask.duration * 60;
       
       return {
 
@@ -19,8 +19,8 @@ export function taskReducer(
         ...state,
         activeTask: newTask,
         currentCycle: nextCycle,
-        secondsReamaining,
-        formattedSecondsRemaining: formatSecondsToMinutes(secondsReamaining),
+        secondsRemaining,
+        formattedSecondsRemaining: formatSecondsToMinutes(secondsRemaining),
         tasks: [...state.tasks, newTask],
       };
      
@@ -31,11 +31,26 @@ export function taskReducer(
       return {
         ...state,
         activeTask: null,
-        secondsReamaining: 0,
+        secondsRemaining: 0,
         formattedSecondsRemaining: "00:00",
         tasks: state.tasks.map(task => {
           if (state.activeTask && state.activeTask.id === task.id) {
             return { ...task, interruptDate: Date.now() };
+          }
+          return task;
+        }),
+      };
+    }
+    case TaskActionsTypes.COMPLETE_TASK: {
+
+      return {
+        ...state,
+        activeTask: null,
+        secondsRemaining: 0,
+        formattedSecondsRemaining: "00:00",
+        tasks: state.tasks.map(task => {
+          if (state.activeTask && state.activeTask.id === task.id) {
+            return { ...task, completeDate: Date.now() };
           }
           return task;
         }),
@@ -48,8 +63,8 @@ export function taskReducer(
     case TaskActionsTypes.COUNT_DOWN: {
       return {
         ...state,
-        secondsReamaining: action.payload.secondsReamaining,
-        formattedSecondsRemaining: formatSecondsToMinutes(action.payload.secondsReamaining)
+        secondsRemaining: action.payload.secondsRemaining,
+        formattedSecondsRemaining: formatSecondsToMinutes(action.payload.secondsRemaining)
 
       }
     }
