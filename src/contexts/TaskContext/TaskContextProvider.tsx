@@ -24,7 +24,7 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
       ...parsedStorageState,
       activeTask: null,
       secondsRemaining: 0,
-      formattedSecondsRemaining: 0
+      formattedSecondsRemaining: '00:00'
     }
   });
   const playBeepRef = useRef<ReturnType<typeof loadBeep> | null>(null);
